@@ -7,11 +7,7 @@ buildscript {
         classpath 'com.neenbedankt.gradle.plugins:android-apt:1.4'
     }
 }
-allprojects {
-    repositories {
-        maven { url "https://oss.sonatype.org/content/repositories/snapshots" }
-    }
-}
+
 apply plugin: 'com.android.application'
 apply plugin: 'com.neenbedankt.android-apt'
 
@@ -43,7 +39,7 @@ dependencies {
     compile "com.android.support:recyclerview-v7:$rootProject.supportLibraryVersion"
     compile "com.android.support:support-v4:$rootProject.supportLibraryVersion"
     compile "com.jakewharton:butterknife:$rootProject.butterknife"
-    apt "com.jakewharton:butterknife-compiler:$rootProject.butterknife"
+    compile "com.google.guava:guava:$rootProject.guavaVersion"
 
 }
 
