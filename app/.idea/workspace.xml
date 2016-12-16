@@ -9,21 +9,7 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a7caefd0-b8b3-4f94-a9a3-7d3cd4d9e2f3" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/androidmvp/vinzdez/com/androidmvp/view/SearchCriteriaView.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/res/menu/menu_main.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/res/xml/searchable.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/src/main/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/androidmvp/vinzdez/com/androidmvp/activity/BaseActivity.java" afterPath="$PROJECT_DIR$/src/main/java/androidmvp/vinzdez/com/androidmvp/activity/BaseActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/androidmvp/vinzdez/com/androidmvp/activity/ListActivity.java" afterPath="$PROJECT_DIR$/src/main/java/androidmvp/vinzdez/com/androidmvp/activity/ListActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/androidmvp/vinzdez/com/androidmvp/activity/ListFragment.java" afterPath="$PROJECT_DIR$/src/main/java/androidmvp/vinzdez/com/androidmvp/activity/ListFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/androidmvp/vinzdez/com/androidmvp/model/SearchResult.java" afterPath="$PROJECT_DIR$/src/main/java/androidmvp/vinzdez/com/androidmvp/model/SearchResult.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/androidmvp/vinzdez/com/androidmvp/presenter/ListContract.java" afterPath="$PROJECT_DIR$/src/main/java/androidmvp/vinzdez/com/androidmvp/presenter/ListContract.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/androidmvp/vinzdez/com/androidmvp/presenter/ListPresenter.java" afterPath="$PROJECT_DIR$/src/main/java/androidmvp/vinzdez/com/androidmvp/presenter/ListPresenter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/res/values/strings.xml" afterPath="$PROJECT_DIR$/src/main/res/values/strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/res/values/styles.xml" afterPath="$PROJECT_DIR$/src/main/res/values/styles.xml" />
-    </list>
+    <list default="true" id="a7caefd0-b8b3-4f94-a9a3-7d3cd4d9e2f3" name="Default" comment="" />
     <ignored path="app.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -85,8 +71,8 @@
       <file leaf-file-name="ListPresenter.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/androidmvp/vinzdez/com/androidmvp/presenter/ListPresenter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="184">
-              <caret line="70" column="0" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
+            <state relative-caret-position="-309">
+              <caret line="71" column="68" selection-start-line="71" selection-start-column="68" selection-end-line="71" selection-end-column="68" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#3349#3350#0" expanded="true" />
@@ -2974,8 +2960,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/androidmvp/vinzdez/com/androidmvp/presenter/ListPresenter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="70" column="0" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
+        <state relative-caret-position="-309">
+          <caret line="71" column="68" selection-start-line="71" selection-start-column="68" selection-end-line="71" selection-end-column="68" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#3349#3350#0" expanded="true" />
