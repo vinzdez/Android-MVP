@@ -10,10 +10,13 @@ public class ListActivity extends BaseActivity {
     private ListPresenter listPresenter;
 
     @Override
+    protected int getLayoutResId() {
+        return R.layout.activity_list;
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ButterKnife.bind(this);
-        setContentView(R.layout.activity_list);
         initFragment();
     }
 
