@@ -1,4 +1,4 @@
-package androidmvp.vinzdez.com.androidmvp;
+package androidmvp.vinzdez.com.androidmvp.presenter;
 
 import android.support.v7.widget.CardView;
 

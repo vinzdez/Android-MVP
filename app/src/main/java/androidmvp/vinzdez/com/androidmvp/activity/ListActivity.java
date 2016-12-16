@@ -1,9 +1,10 @@
-package androidmvp.vinzdez.com.androidmvp;
+package androidmvp.vinzdez.com.androidmvp.activity;
 
 import android.os.Bundle;
 
+import androidmvp.vinzdez.com.androidmvp.presenter.ListPresenter;
+import androidmvp.vinzdez.com.androidmvp.R;
 import androidmvp.vinzdez.com.androidmvp.util.ActivityUtils;
-import butterknife.ButterKnife;
 
 public class ListActivity extends BaseActivity {
 

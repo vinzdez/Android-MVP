@@ -1,4 +1,4 @@
-package androidmvp.vinzdez.com.androidmvp;
+package androidmvp.vinzdez.com.androidmvp.activity;
 
 
 import android.content.Context;
@@ -15,6 +15,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import androidmvp.vinzdez.com.androidmvp.presenter.ListContract;
+import androidmvp.vinzdez.com.androidmvp.R;
 import androidmvp.vinzdez.com.androidmvp.model.Movie;
 import butterknife.BindView;
 import butterknife.ButterKnife;

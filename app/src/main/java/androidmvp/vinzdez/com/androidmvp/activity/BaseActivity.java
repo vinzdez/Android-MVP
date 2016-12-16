@@ -1,4 +1,4 @@
-package androidmvp.vinzdez.com.androidmvp;
+package androidmvp.vinzdez.com.androidmvp.activity;
 
 import android.os.Bundle;
 import android.support.annotation.LayoutRes;

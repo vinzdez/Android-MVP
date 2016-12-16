@@ -1,4 +1,4 @@
-package androidmvp.vinzdez.com.androidmvp;
+package androidmvp.vinzdez.com.androidmvp.activity;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -8,6 +8,7 @@ import android.widget.TextView;
 
 import java.util.List;
 
+import androidmvp.vinzdez.com.androidmvp.R;
 import androidmvp.vinzdez.com.androidmvp.model.Movie;
 import butterknife.BindView;
 import butterknife.ButterKnife;
