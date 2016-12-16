@@ -16,7 +16,7 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import androidmvp.vinzdez.com.androidmvp.model.Movie;
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 import static com.google.common.base.Preconditions.checkNotNull;
@@ -32,7 +32,7 @@ public class ListFragment extends Fragment implements ListContract.View {
     private ListAdapter listAdapter;
     private ListContract.Presenter listPresenter;
 
-    @Bind(R.id.id_recycler_view)
+    @BindView(R.id.id_recycler_view)
     RecyclerView recyclerView;
 
     public static ListFragment newInstance() {

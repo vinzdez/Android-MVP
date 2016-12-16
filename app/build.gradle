@@ -4,7 +4,7 @@ buildscript {
     }
     dependencies {
         classpath "com.android.tools.build:gradle:$rootProject.gradleVersion"
-        classpath 'com.neenbedankt.gradle.plugins:android-apt:1.4'
+        classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
     }
 }
 
@@ -39,6 +39,7 @@ dependencies {
     compile "com.android.support:recyclerview-v7:$rootProject.supportLibraryVersion"
     compile "com.android.support:support-v4:$rootProject.supportLibraryVersion"
     compile "com.jakewharton:butterknife:$rootProject.butterknife"
+    apt "com.jakewharton:butterknife-compiler:$rootProject.butterknife"
     compile "com.google.guava:guava:$rootProject.guavaVersion"
 
 }

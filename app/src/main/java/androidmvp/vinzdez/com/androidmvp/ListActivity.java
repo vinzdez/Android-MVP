@@ -14,16 +14,16 @@ public class ListActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         ButterKnife.bind(this);
         setContentView(R.layout.activity_list);
-        initFragment(R.id.contentFrame);
+        initFragment();
     }
 
-    private void initFragment(int fragmentFrame) {
+    private void initFragment() {
         ListFragment listFragment =
-                (ListFragment) getSupportFragmentManager().findFragmentById(fragmentFrame);
+                (ListFragment) getSupportFragmentManager().findFragmentById(R.id.contentFrame);
 
         if (listFragment == null) {
             listFragment = ListFragment.newInstance();
-            ActivityUtils.addFragmentToActivity(getSupportFragmentManager(), listFragment, fragmentFrame);
+            ActivityUtils.addFragmentToActivity(getSupportFragmentManager(), listFragment, R.id.contentFrame);
         }
 
         listPresenter = new ListPresenter(listFragment);

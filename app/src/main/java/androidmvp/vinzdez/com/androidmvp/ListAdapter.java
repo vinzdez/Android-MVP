@@ -9,7 +9,7 @@ import android.widget.TextView;
 import java.util.List;
 
 import androidmvp.vinzdez.com.androidmvp.model.Movie;
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
@@ -40,11 +40,11 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.MyViewHolder> 
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
 
-        @Bind(R.id.title)
+        @BindView(R.id.title)
         TextView title;
-        @Bind(R.id.genre)
+        @BindView(R.id.genre)
         TextView genre;
-        @Bind(R.id.year)
+        @BindView(R.id.year)
         TextView year;
 
         public MyViewHolder(View itemView) {

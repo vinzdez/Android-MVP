@@ -4,12 +4,6 @@ buildscript {
     repositories {
         jcenter()
     }
-    dependencies {
-        classpath 'com.android.tools.build:gradle:2.1.0'
-
-        // NOTE: Do not place your application dependencies here; they belong
-        // in the individual module build.gradle files
-    }
 }
 
 allprojects {
@@ -33,7 +27,7 @@ ext {
 // App dependencies
     supportLibraryVersion = '23.4.0'
     gradleVersion = '2.2.3'
-    butterknife = '7.0.1'
+    butterknife = '8.4.0'
     guavaVersion = '18.0'
     realm = '0.89.0'
 }
