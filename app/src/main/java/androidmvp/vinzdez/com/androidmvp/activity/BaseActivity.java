@@ -1,9 +1,15 @@
 package androidmvp.vinzdez.com.androidmvp.activity;
 
+import android.app.SearchManager;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.LayoutRes;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.SearchView;
+import android.view.Menu;
+import android.view.MenuInflater;
 
+import androidmvp.vinzdez.com.androidmvp.R;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 

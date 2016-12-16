@@ -1,13 +1,15 @@
 package androidmvp.vinzdez.com.androidmvp.presenter;
 
+import android.content.Context;
 import android.support.annotation.NonNull;
+import android.support.v7.widget.SearchView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import androidmvp.vinzdez.com.androidmvp.model.Movie;
-
-import static com.google.common.base.Preconditions.checkNotNull;
+import androidmvp.vinzdez.com.androidmvp.view.SearchCriteriaView;
 
 /**
  * Created by Vicente on 4/16/2016.
@@ -15,24 +17,29 @@ import static com.google.common.base.Preconditions.checkNotNull;
 public class ListPresenter implements ListContract.Presenter {
 
 
-    private final ListContract.View listView;
+    private final SearchCriteriaView searchCriteriaView;
+    private Context context;
+    private SearchView searchView;
 
-    public ListPresenter(@NonNull ListContract.View listView) {
-        this.listView = listView;
-        listView = checkNotNull(listView, "tasksView cannot be null!");
-        listView.setPresenter(this);
+    public ListPresenter(@NonNull SearchCriteriaView searchViewImpl, @NonNull Context context) {
+        this.context = context;
+        this.searchCriteriaView = searchViewImpl;
+        searchCriteriaView.setPresenter(this);
     }
 
     @Override
     public void start() {
+        loadLastSearches();
         loadTasks(false);
     }
 
+    @Deprecated
     @Override
     public List<Movie> loadTasks(boolean forceLoad) {
         return loadTasks();
     }
 
+    @Deprecated
     private List<Movie> loadTasks() {
         List<Movie> movieList = new ArrayList<>();
         Movie movie = new Movie("Mad Max: Fury Road", "Action & Adventure", "2015");
@@ -89,5 +96,24 @@ public class ListPresenter implements ListContract.Presenter {
     @Override
     public void openTaskDetail() {
 
+    }
+
+    //TODO : Query From DB
+    @Override
+    public void loadLastSearches() {
+
+    }
+
+    //TODO : Observable? For Query?
+    @Override
+    public void find(String query) {
+        if (searchView != null && searchView.isShown()) {
+            searchView.setQuery("", false);
+        }
+        Toast.makeText(context, query, Toast.LENGTH_SHORT).show();
+    }
+
+    public void setSearchView(SearchView searchView) {
+        this.searchView = searchView;
     }
 }
