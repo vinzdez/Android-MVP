@@ -41,6 +41,8 @@ dependencies {
     compile "com.jakewharton:butterknife:$rootProject.butterknife"
     apt "com.jakewharton:butterknife-compiler:$rootProject.butterknife"
     compile "com.google.guava:guava:$rootProject.guavaVersion"
+    compile "com.squareup.retrofit2:retrofit:$rootProject.retrofit2"
+    compile "com.squareup.retrofit2:converter-gson:$rootProject.retrofit2"
 
 }
 

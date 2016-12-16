@@ -29,5 +29,6 @@ ext {
     gradleVersion = '2.2.3'
     butterknife = '8.4.0'
     guavaVersion = '18.0'
-    realm = '0.89.0'
+    realm = '2.2.1'
+    retrofit2 = '2.1.0'
 }
