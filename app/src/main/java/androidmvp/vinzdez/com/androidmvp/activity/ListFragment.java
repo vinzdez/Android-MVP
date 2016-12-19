@@ -61,7 +61,6 @@ public class ListFragment extends Fragment implements SearchCriteriaView {
     @Override
     public void onResume() {
         super.onResume();
-        listAdapter.setMoviesList(listPresenter.loadTasks(true));
         listAdapter.notifyDataSetChanged();
     }
 

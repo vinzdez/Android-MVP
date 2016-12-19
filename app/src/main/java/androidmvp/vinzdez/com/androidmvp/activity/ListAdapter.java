@@ -6,10 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import java.util.List;
-
 import androidmvp.vinzdez.com.androidmvp.R;
-import androidmvp.vinzdez.com.androidmvp.model.Movie;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -17,8 +14,6 @@ import butterknife.ButterKnife;
  * Created by Vicente on 4/16/2016.
  */
 public class ListAdapter extends RecyclerView.Adapter<ListAdapter.MyViewHolder> {
-
-    private List<Movie> moviesList;
 
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -28,15 +23,12 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.MyViewHolder> 
 
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
-        Movie movie = getMoviesList().get(position);
-        holder.title.setText(movie.getTitle());
-        holder.genre.setText(movie.getGenre());
-        holder.year.setText(movie.getYear());
+
     }
 
     @Override
     public int getItemCount() {
-        return getMoviesList().size();
+        return 0;
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
@@ -52,13 +44,5 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.MyViewHolder> 
             super(itemView);
             ButterKnife.bind(this, itemView);
         }
-    }
-
-    public List<Movie> getMoviesList() {
-        return moviesList;
-    }
-
-    public void setMoviesList(List<Movie> moviesList) {
-        this.moviesList = moviesList;
     }
 }
