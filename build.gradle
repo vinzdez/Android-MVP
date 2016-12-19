@@ -31,4 +31,5 @@ ext {
     guavaVersion = '18.0'
     realm = '2.2.1'
     retrofit2 = '2.1.0'
+    okhttp3 = '3.4.1'
 }
