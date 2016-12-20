@@ -28,4 +28,5 @@
 
     <color name="winBackground">#FFFFFF</color>
     <color name="background">#607D8B</color>
+    <color name="light_background">#ddeaf1</color>
 </resources>

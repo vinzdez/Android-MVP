@@ -2,12 +2,17 @@ package androidmvp.vinzdez.com.androidmvp.activity;
 
 import android.app.SearchManager;
 import android.content.Context;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.view.MenuItemCompat;
 import android.support.v7.widget.SearchView;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.EditText;
+import android.widget.ImageView;
 
 import androidmvp.vinzdez.com.androidmvp.R;
 import androidmvp.vinzdez.com.androidmvp.presenter.ListPresenter;
@@ -33,12 +38,12 @@ public class ListActivity extends BaseActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu_main, menu);
-
+        final MenuItem searchMenuItem = menu.findItem(R.id.menu_search);
         if (searchView == null) {
             // Associate searchable configuration with the SearchResultView
             SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
 
-            MenuItem searchMenuItem = menu.findItem(R.id.menu_search);
+
             this.searchView = (SearchView) searchMenuItem.getActionView();
             ListFragment listFragment = getListFregment();
 
@@ -48,6 +53,26 @@ public class ListActivity extends BaseActivity {
             searchView.setSubmitButtonEnabled(true);
             listPresenter.setSearchView(searchView);
         }
+
+        MenuItemCompat.setOnActionExpandListener(searchMenuItem, new MenuItemCompat.OnActionExpandListener() {
+            @Override
+            public boolean onMenuItemActionExpand(MenuItem item) {
+                if (getSupportActionBar() != null) {
+                     getSupportActionBar().setBackgroundDrawable(getDrawable(R.color.light_background));
+                }
+                return true;
+            }
+
+            @Override
+            public boolean onMenuItemActionCollapse(MenuItem item) {
+                // Set styles for collapsed state here
+                if (getSupportActionBar() != null) {
+                     getSupportActionBar().setBackgroundDrawable(getDrawable(R.color.background));
+
+                }
+                return true;
+            }
+        });
 
         return true;
     }
