@@ -10,10 +10,15 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
+
+import java.util.List;
 
 import androidmvp.vinzdez.com.androidmvp.R;
+import androidmvp.vinzdez.com.androidmvp.adapter.ListAdapter;
+import androidmvp.vinzdez.com.androidmvp.model.SearchResult;
 import androidmvp.vinzdez.com.androidmvp.presenter.ListContract;
-import androidmvp.vinzdez.com.androidmvp.view.SearchCriteriaView;
+import androidmvp.vinzdez.com.androidmvp.view.SearchResultView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -22,7 +27,7 @@ import static com.google.common.base.Preconditions.checkNotNull;
 /**
  * Created by Vicente on 4/16/2016.
  */
-public class ListFragment extends Fragment implements SearchCriteriaView {
+public class ListFragment extends Fragment implements SearchResultView {
 
     private Context context;
 
@@ -32,6 +37,8 @@ public class ListFragment extends Fragment implements SearchCriteriaView {
 
     @BindView(R.id.id_recycler_view)
     RecyclerView recyclerView;
+    @BindView(R.id.search_progress_bar)
+    ProgressBar progressBar;
 
     public static ListFragment newInstance() {
         return new ListFragment();
@@ -71,6 +78,8 @@ public class ListFragment extends Fragment implements SearchCriteriaView {
 
     @Override
     public boolean onQueryTextSubmit(String query) {
+        listAdapter.clearItems();
+        listAdapter.notifyDataSetChanged();
         listPresenter.find(query);
         return true;
     }
@@ -81,4 +90,14 @@ public class ListFragment extends Fragment implements SearchCriteriaView {
     }
 
 
+    @Override
+    public void loadSearchResult(List<SearchResult> searchResultList) {
+        listAdapter.getSearchResults().addAll(searchResultList);
+        listAdapter.notifyDataSetChanged();
+    }
+
+    @Override
+    public void toggleProgressBar(int visibility) {
+        progressBar.setVisibility(visibility);
+    }
 }

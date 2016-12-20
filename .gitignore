@@ -8,3 +8,5 @@
 /captures
 app/.idea/workspace.xml
 app/.idea/misc.xml
+app/.idea/libraries/constraint_layout_1_0_0_beta4.xml
+app/.idea/libraries/constraint_layout_solver_1_0_0_beta4.xml

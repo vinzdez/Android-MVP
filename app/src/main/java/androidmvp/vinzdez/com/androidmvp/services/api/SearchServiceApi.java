@@ -8,6 +8,7 @@ import androidmvp.vinzdez.com.androidmvp.model.SearchResult;
 
 /**
  * Created by Vicente Angcaway on 19/12/2016.
+ * API
  */
 
 public interface SearchServiceApi {

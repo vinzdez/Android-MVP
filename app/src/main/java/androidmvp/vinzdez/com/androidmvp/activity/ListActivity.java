@@ -20,7 +20,7 @@ public class ListActivity extends BaseActivity {
 
     @Override
     protected int getLayoutResId() {
-        return R.layout.activity_list;
+        return R.layout.activity_search_result;
     }
 
     @Override
@@ -35,8 +35,9 @@ public class ListActivity extends BaseActivity {
         inflater.inflate(R.menu.menu_main, menu);
 
         if (searchView == null) {
-            // Associate searchable configuration with the SearchCriteriaView
+            // Associate searchable configuration with the SearchResultView
             SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
+
             MenuItem searchMenuItem = menu.findItem(R.id.menu_search);
             this.searchView = (SearchView) searchMenuItem.getActionView();
             ListFragment listFragment = getListFregment();
@@ -44,8 +45,6 @@ public class ListActivity extends BaseActivity {
             if (listFragment != null) {
                 searchView.setOnQueryTextListener(listFragment);
             }
-
-            searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
             searchView.setSubmitButtonEnabled(true);
             listPresenter.setSearchView(searchView);
         }

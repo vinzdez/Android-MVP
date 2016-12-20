@@ -3,14 +3,15 @@ package androidmvp.vinzdez.com.androidmvp.presenter;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.SearchView;
+import android.view.View;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import androidmvp.vinzdez.com.androidmvp.model.SearchResult;
 import androidmvp.vinzdez.com.androidmvp.services.SearchServiceApiImpl;
+import androidmvp.vinzdez.com.androidmvp.services.SearchServiceImpl;
 import androidmvp.vinzdez.com.androidmvp.services.api.SearchService;
-import androidmvp.vinzdez.com.androidmvp.view.SearchCriteriaView;
+import androidmvp.vinzdez.com.androidmvp.view.SearchResultView;
 
 /**
  * Created by Vicente on 4/16/2016.
@@ -18,16 +19,16 @@ import androidmvp.vinzdez.com.androidmvp.view.SearchCriteriaView;
 public class ListPresenter implements ListContract.Presenter {
 
 
-    private final SearchCriteriaView searchCriteriaView;
+    private final SearchResultView searchResultView;
     private Context context;
     private SearchView searchView;
-    private SearchService searchService;
+    private SearchServiceImpl searchServiceImpl;
 
-    public ListPresenter(@NonNull SearchCriteriaView searchViewImpl, @NonNull Context context) {
+    public ListPresenter(@NonNull SearchResultView searchViewImpl, @NonNull Context context) {
         this.context = context;
-        this.searchCriteriaView = searchViewImpl;
-        this.searchService = new SearchService(new SearchServiceApiImpl());
-        searchCriteriaView.setPresenter(this);
+        this.searchResultView = searchViewImpl;
+        this.searchServiceImpl = new SearchServiceImpl(new SearchServiceApiImpl());
+        searchResultView.setPresenter(this);
     }
 
     @Override
@@ -46,15 +47,22 @@ public class ListPresenter implements ListContract.Presenter {
 
     }
 
-    @Override
-    public void find(String query) {
-        if (searchView != null && searchView.isShown()) {
-            List<SearchResult> searchResults = searchService.find(query);
-            searchView.setQuery("", false);
-        }
-    }
-
     public void setSearchView(SearchView searchView) {
         this.searchView = searchView;
+    }
+
+    @Override
+    public void find(String query) {
+        searchResultView.toggleProgressBar(View.VISIBLE);
+        if (searchView != null && searchView.isShown()) {
+            searchServiceImpl.find(new SearchService.SearchResultCallback() {
+                @Override
+                public void onResultLoaded(List<SearchResult> searchResultList) {
+                    searchResultView.toggleProgressBar(View.GONE);
+                    searchResultView.loadSearchResult(searchResultList);
+                }
+            }, query);
+            searchView.setQuery("", false);
+        }
     }
 }
