@@ -18,7 +18,6 @@ import androidmvp.vinzdez.com.androidmvp.view.SearchResultView;
  */
 public class ListPresenter implements ListContract.Presenter {
 
-
     private final SearchResultView searchResultView;
     private Context context;
     private SearchView searchView;
@@ -53,6 +52,8 @@ public class ListPresenter implements ListContract.Presenter {
 
     @Override
     public void find(String query) {
+        searchView.clearFocus();
+        searchView.setIconifiedByDefault(true);
         searchResultView.toggleProgressBar(View.VISIBLE);
         if (searchView != null && searchView.isShown()) {
             searchServiceImpl.find(new SearchService.SearchResultCallback() {

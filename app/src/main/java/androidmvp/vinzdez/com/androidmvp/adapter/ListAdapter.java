@@ -5,11 +5,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.AccelerateInterpolator;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.view.animation.DecelerateInterpolator;
-import android.view.animation.OvershootInterpolator;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -25,15 +22,9 @@ import butterknife.ButterKnife;
  */
 public class ListAdapter extends RecyclerView.Adapter<ListAdapter.MyViewHolder> {
 
-    private static final DecelerateInterpolator DECCELERATE_INTERPOLATOR = new DecelerateInterpolator();
-    private static final AccelerateInterpolator ACCELERATE_INTERPOLATOR = new AccelerateInterpolator();
-    private static final OvershootInterpolator OVERSHOOT_INTERPOLATOR = new OvershootInterpolator(4);
-
-    private static final int ANIMATED_ITEMS_COUNT = 2;
-
+    private int lastAnimatedPosition = -1;
     private List<SearchResult> searchResults;
     private View itemView;
-    private int lastPosition;
     private Context context;
 
     @Override
@@ -49,7 +40,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.MyViewHolder> 
         holder.title.setText(searchResult.name);
         holder.description.setText(searchResult.description);
         holder.link.setText(searchResult.source);
-        setAnimation(holder.itemView, position);
+        runEnterAnimation(holder.itemView, position);
 
     }
 
@@ -61,22 +52,19 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.MyViewHolder> 
     public void clearItems() {
         if (!getSearchResults().isEmpty()) {
             getSearchResults().clear();
+            lastAnimatedPosition = -1;
         }
     }
 
-    /**
-     * Here is the key method to apply the animation
-     */
-    private void setAnimation(View viewToAnimate, int position) {
-        // If the bound view wasn't previously displayed on screen, it's animated
-        if (position > lastPosition) {
-            Animation animation = AnimationUtils.loadAnimation(context, android.R.anim.fade_in);
-            animation.setDuration(1000);
-            viewToAnimate.startAnimation(animation);
-            lastPosition = position;
+    private void runEnterAnimation(View view, int position) {
+
+        if (position > lastAnimatedPosition) {
+            lastAnimatedPosition = position;
+            Animation animation = AnimationUtils.loadAnimation(context, R.anim.pop_out);
+            animation.setInterpolator(context, android.R.anim.decelerate_interpolator);
+            view.startAnimation(animation);
         }
     }
-
 
     public List<SearchResult> getSearchResults() {
         if (searchResults == null) {
