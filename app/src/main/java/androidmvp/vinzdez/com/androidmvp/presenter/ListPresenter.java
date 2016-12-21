@@ -1,7 +1,10 @@
 package androidmvp.vinzdez.com.androidmvp.presenter;
 
 import android.content.Context;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.TransitionDrawable;
 import android.support.annotation.NonNull;
+import android.support.v7.app.ActionBar;
 import android.support.v7.widget.SearchView;
 import android.view.View;
 
@@ -65,5 +68,13 @@ public class ListPresenter implements ListContract.Presenter {
             }, query);
             searchView.setQuery("", false);
         }
+    }
+
+    @Override
+    public void actionBarTransition(@NonNull ActionBar actionBar, @NonNull Drawable initial, @NonNull Drawable outcome) {
+        TransitionDrawable transitionDrawable = new TransitionDrawable(new Drawable[]{initial, outcome});
+        actionBar.setBackgroundDrawable(transitionDrawable);
+        transitionDrawable.startTransition(1000);
+
     }
 }

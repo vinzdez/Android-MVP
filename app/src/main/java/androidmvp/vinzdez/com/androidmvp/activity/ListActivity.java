@@ -2,8 +2,6 @@ package androidmvp.vinzdez.com.androidmvp.activity;
 
 import android.app.SearchManager;
 import android.content.Context;
-import android.graphics.Color;
-import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.view.MenuItemCompat;
@@ -11,8 +9,6 @@ import android.support.v7.widget.SearchView;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.widget.EditText;
-import android.widget.ImageView;
 
 import androidmvp.vinzdez.com.androidmvp.R;
 import androidmvp.vinzdez.com.androidmvp.presenter.ListPresenter;
@@ -50,15 +46,21 @@ public class ListActivity extends BaseActivity {
             if (listFragment != null) {
                 searchView.setOnQueryTextListener(listFragment);
             }
+
             searchView.setSubmitButtonEnabled(true);
             listPresenter.setSearchView(searchView);
-        }
 
+            setActionExpandListener(searchMenuItem);
+        }
+        return true;
+    }
+
+    private void setActionExpandListener(MenuItem searchMenuItem) {
         MenuItemCompat.setOnActionExpandListener(searchMenuItem, new MenuItemCompat.OnActionExpandListener() {
             @Override
             public boolean onMenuItemActionExpand(MenuItem item) {
                 if (getSupportActionBar() != null) {
-                     getSupportActionBar().setBackgroundDrawable(getDrawable(R.color.light_background));
+                    listPresenter.actionBarTransition(getSupportActionBar(), getDrawable(R.color.primary_background), getDrawable(R.color.background));
                 }
                 return true;
             }
@@ -67,14 +69,11 @@ public class ListActivity extends BaseActivity {
             public boolean onMenuItemActionCollapse(MenuItem item) {
                 // Set styles for collapsed state here
                 if (getSupportActionBar() != null) {
-                     getSupportActionBar().setBackgroundDrawable(getDrawable(R.color.background));
-
+                    listPresenter.actionBarTransition(getSupportActionBar(), getDrawable(R.color.background), getDrawable(R.color.primary_background));
                 }
                 return true;
             }
         });
-
-        return true;
     }
 
     private void initFragment() {
