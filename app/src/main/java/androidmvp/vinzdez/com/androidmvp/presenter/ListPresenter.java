@@ -8,8 +8,10 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.widget.SearchView;
 import android.view.View;
 
+import java.text.MessageFormat;
 import java.util.List;
 
+import androidmvp.vinzdez.com.androidmvp.R;
 import androidmvp.vinzdez.com.androidmvp.model.SearchResult;
 import androidmvp.vinzdez.com.androidmvp.services.SearchServiceApiImpl;
 import androidmvp.vinzdez.com.androidmvp.services.SearchServiceImpl;
@@ -35,19 +37,9 @@ public class ListPresenter implements ListContract.Presenter {
 
     @Override
     public void start() {
-        loadLastSearches();
-    }
-
-    @Override
-    public void openTaskDetail() {
 
     }
 
-    //TODO : Query From DB
-    @Override
-    public void loadLastSearches() {
-
-    }
 
     public void setSearchView(SearchView searchView) {
         this.searchView = searchView;

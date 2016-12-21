@@ -10,7 +10,9 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import java.util.List;
 
@@ -18,10 +20,12 @@ import androidmvp.vinzdez.com.androidmvp.R;
 import androidmvp.vinzdez.com.androidmvp.adapter.ListAdapter;
 import androidmvp.vinzdez.com.androidmvp.model.SearchResult;
 import androidmvp.vinzdez.com.androidmvp.presenter.ListContract;
+import androidmvp.vinzdez.com.androidmvp.util.FontUtil;
 import androidmvp.vinzdez.com.androidmvp.view.SearchResultView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
+import static android.view.View.GONE;
 import static com.google.common.base.Preconditions.checkNotNull;
 
 /**
@@ -40,6 +44,12 @@ public class ListFragment extends Fragment implements SearchResultView {
     @BindView(R.id.search_progress_bar)
     ProgressBar progressBar;
 
+    @BindView(R.id.ll_emptyState)
+    LinearLayout linearLayoutEmptyState;
+    @BindView(R.id.tv_empty_state_message)
+    TextView tvEmptyMessage;
+
+
     public static ListFragment newInstance() {
         return new ListFragment();
     }
@@ -54,6 +64,10 @@ public class ListFragment extends Fragment implements SearchResultView {
             this.listAdapter = new ListAdapter();
             recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
             recyclerView.setAdapter(listAdapter);
+            tvEmptyMessage.setTypeface(FontUtil.getFontAwesome(context));
+
+            recyclerView.setVisibility(GONE);
+            progressBar.setVisibility(GONE);
         }
 
         return listFragVIew;
@@ -78,6 +92,11 @@ public class ListFragment extends Fragment implements SearchResultView {
 
     @Override
     public boolean onQueryTextSubmit(String query) {
+        if(GONE != linearLayoutEmptyState.getVisibility() ){
+            recyclerView.setVisibility(View.VISIBLE);
+            progressBar.setVisibility(View.VISIBLE);
+            linearLayoutEmptyState.setVisibility(GONE);
+        }
         listAdapter.clearItems();
         listAdapter.notifyDataSetChanged();
         listPresenter.find(query);

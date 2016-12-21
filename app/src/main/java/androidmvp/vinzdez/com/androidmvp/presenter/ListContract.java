@@ -15,10 +15,6 @@ public interface ListContract {
     interface Presenter {
         void start();
 
-        void openTaskDetail();
-
-        void loadLastSearches();
-
         void find(String query);
 
         void actionBarTransition(ActionBar actionBar, Drawable initial, Drawable outcome);
