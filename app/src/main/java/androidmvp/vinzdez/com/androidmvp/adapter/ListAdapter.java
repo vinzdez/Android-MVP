@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import androidmvp.vinzdez.com.androidmvp.R;
-import androidmvp.vinzdez.com.androidmvp.model.SearchResult;
+import androidmvp.vinzdez.com.androidmvp.model.SearchResultResponse;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -23,7 +23,7 @@ import butterknife.ButterKnife;
 public class ListAdapter extends RecyclerView.Adapter<ListAdapter.MyViewHolder> {
 
     private int lastAnimatedPosition = -1;
-    private List<SearchResult> searchResults;
+    private List<SearchResultResponse> searchResultResponses;
     private View itemView;
     private Context context;
 
@@ -36,22 +36,22 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.MyViewHolder> 
 
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
-        SearchResult searchResult = getSearchResults().get(position);
-        holder.title.setText(searchResult.name);
-        holder.description.setText(searchResult.description);
-        holder.link.setText(searchResult.source);
+        SearchResultResponse searchResultResponse = getSearchResultResponses().get(position);
+        holder.title.setText(searchResultResponse.name);
+        holder.description.setText(searchResultResponse.description);
+        holder.link.setText(searchResultResponse.source);
         runEnterAnimation(holder.itemView, position);
 
     }
 
     @Override
     public int getItemCount() {
-        return getSearchResults().size();
+        return getSearchResultResponses().size();
     }
 
     public void clearItems() {
-        if (!getSearchResults().isEmpty()) {
-            getSearchResults().clear();
+        if (!getSearchResultResponses().isEmpty()) {
+            getSearchResultResponses().clear();
             lastAnimatedPosition = -1;
         }
     }
@@ -66,11 +66,11 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.MyViewHolder> 
         }
     }
 
-    public List<SearchResult> getSearchResults() {
-        if (searchResults == null) {
-            this.searchResults = new ArrayList<>();
+    public List<SearchResultResponse> getSearchResultResponses() {
+        if (searchResultResponses == null) {
+            this.searchResultResponses = new ArrayList<>();
         }
-        return searchResults;
+        return searchResultResponses;
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {

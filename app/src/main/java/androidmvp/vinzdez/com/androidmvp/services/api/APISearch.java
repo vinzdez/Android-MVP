@@ -2,7 +2,7 @@ package androidmvp.vinzdez.com.androidmvp.services.api;
 
 import java.util.List;
 
-import androidmvp.vinzdez.com.androidmvp.model.SearchResult;
+import androidmvp.vinzdez.com.androidmvp.model.SearchResultResponse;
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Query;
@@ -16,6 +16,6 @@ import retrofit2.http.Query;
 public interface APISearch {
 
     @GET("search?search=Movie")
-    Call<List<SearchResult>> find(@Query("search") String search);
+    Call<List<SearchResultResponse>> find(@Query("search") String search);
     
 }

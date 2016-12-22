@@ -3,10 +3,10 @@ package androidmvp.vinzdez.com.androidmvp.model;
 import com.google.gson.annotations.SerializedName;
 
 /**
- * Created by Vicente Angcaway on 16/12/2016.
+ * Created by Vicente Angcaway on 22/12/2016.
  */
 
-public class SearchResult {
+public class SearchResultResponse {
 
     @SerializedName("name")
     public String name;

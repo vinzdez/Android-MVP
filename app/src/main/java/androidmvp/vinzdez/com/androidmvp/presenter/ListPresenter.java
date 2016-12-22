@@ -8,11 +8,9 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.widget.SearchView;
 import android.view.View;
 
-import java.text.MessageFormat;
 import java.util.List;
 
-import androidmvp.vinzdez.com.androidmvp.R;
-import androidmvp.vinzdez.com.androidmvp.model.SearchResult;
+import androidmvp.vinzdez.com.androidmvp.model.SearchResultResponse;
 import androidmvp.vinzdez.com.androidmvp.services.SearchServiceApiImpl;
 import androidmvp.vinzdez.com.androidmvp.services.SearchServiceImpl;
 import androidmvp.vinzdez.com.androidmvp.services.api.SearchService;
@@ -53,9 +51,9 @@ public class ListPresenter implements ListContract.Presenter {
         if (searchView != null && searchView.isShown()) {
             searchServiceImpl.find(new SearchService.SearchResultCallback() {
                 @Override
-                public void onResultLoaded(List<SearchResult> searchResultList) {
+                public void onResultLoaded(List<SearchResultResponse> searchResultResponseList) {
                     searchResultView.toggleProgressBar(View.GONE);
-                    searchResultView.loadSearchResult(searchResultList);
+                    searchResultView.loadSearchResult(searchResultResponseList);
                 }
             }, query);
             searchView.setQuery("", false);

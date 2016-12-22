@@ -2,7 +2,7 @@ package androidmvp.vinzdez.com.androidmvp.view;
 
 import java.util.List;
 
-import androidmvp.vinzdez.com.androidmvp.model.SearchResult;
+import androidmvp.vinzdez.com.androidmvp.model.SearchResultResponse;
 import androidmvp.vinzdez.com.androidmvp.presenter.ListContract;
 
 /**
@@ -11,7 +11,7 @@ import androidmvp.vinzdez.com.androidmvp.presenter.ListContract;
 
 public interface SearchResultView extends ListContract.BaseView<ListContract.Presenter>, android.support.v7.widget.SearchView.OnQueryTextListener {
 
-    void loadSearchResult(List<SearchResult> searchResultList);
+    void loadSearchResult(List<SearchResultResponse> searchResultResponseList);
 
     void toggleProgressBar(int visibility);
 

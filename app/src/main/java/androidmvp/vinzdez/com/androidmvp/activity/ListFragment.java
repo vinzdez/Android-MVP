@@ -18,7 +18,7 @@ import java.util.List;
 
 import androidmvp.vinzdez.com.androidmvp.R;
 import androidmvp.vinzdez.com.androidmvp.adapter.ListAdapter;
-import androidmvp.vinzdez.com.androidmvp.model.SearchResult;
+import androidmvp.vinzdez.com.androidmvp.model.SearchResultResponse;
 import androidmvp.vinzdez.com.androidmvp.presenter.ListContract;
 import androidmvp.vinzdez.com.androidmvp.util.FontUtil;
 import androidmvp.vinzdez.com.androidmvp.view.SearchResultView;
@@ -110,8 +110,8 @@ public class ListFragment extends Fragment implements SearchResultView {
 
 
     @Override
-    public void loadSearchResult(List<SearchResult> searchResultList) {
-        listAdapter.getSearchResults().addAll(searchResultList);
+    public void loadSearchResult(List<SearchResultResponse> searchResultResponseList) {
+        listAdapter.getSearchResultResponses().addAll(searchResultResponseList);
         listAdapter.notifyDataSetChanged();
     }
 

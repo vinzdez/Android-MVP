@@ -4,4 +4,5 @@
 
     <string name="hint">@string/menu_search</string>
     <string name="empty_state_message">You have not search anything yet. Tap the &#xf002; above to start Searching</string>
+    <string name="error_unsupported_exception">Method not yet implemented</string>
 </resources>

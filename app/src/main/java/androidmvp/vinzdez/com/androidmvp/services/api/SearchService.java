@@ -4,7 +4,7 @@ import android.support.annotation.NonNull;
 
 import java.util.List;
 
-import androidmvp.vinzdez.com.androidmvp.model.SearchResult;
+import androidmvp.vinzdez.com.androidmvp.model.SearchResultResponse;
 
 /**
  * Created by Vicente Angcaway on 20/12/2016.
@@ -13,7 +13,7 @@ import androidmvp.vinzdez.com.androidmvp.model.SearchResult;
 public interface SearchService{
 
     interface SearchResultCallback{
-        void onResultLoaded(List<SearchResult> searchResultList);
+        void onResultLoaded(List<SearchResultResponse> searchResultResponseList);
     }
 
     void find(@NonNull SearchResultCallback callback , String search);

@@ -5,7 +5,7 @@ import android.support.annotation.NonNull;
 import java.util.ArrayList;
 import java.util.List;
 
-import androidmvp.vinzdez.com.androidmvp.model.SearchResult;
+import androidmvp.vinzdez.com.androidmvp.model.SearchResultResponse;
 import androidmvp.vinzdez.com.androidmvp.services.api.SearchService;
 import androidmvp.vinzdez.com.androidmvp.services.api.SearchServiceApi;
 
@@ -16,19 +16,19 @@ import androidmvp.vinzdez.com.androidmvp.services.api.SearchServiceApi;
 public class SearchServiceImpl implements SearchService {
 
     private SearchServiceApi searchServiceApi;
-    private List<SearchResult> searchResults;
+    private List<SearchResultResponse> searchResultResponses;
 
     public SearchServiceImpl(@NonNull SearchServiceApi searchServiceApi) {
         this.searchServiceApi = searchServiceApi;
-        this.searchResults = new ArrayList<>();
+        this.searchResultResponses = new ArrayList<>();
     }
 
 
     @Override
     public void find(@NonNull final SearchResultCallback callback, String search) {
-        searchServiceApi.find(new SearchServiceApi.Callback<List<SearchResult>>() {
+        searchServiceApi.find(new SearchServiceApi.Callback<List<SearchResultResponse>>() {
             @Override
-            public void onLoad(List<SearchResult> resultList) {
+            public void onLoad(List<SearchResultResponse> resultList) {
                 callback.onResultLoaded(resultList);
             }
         }, search);
