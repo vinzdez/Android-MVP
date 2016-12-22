@@ -29,3 +29,6 @@ app/.idea/libraries/support_vector_drawable_25_1_0.xml
 app/.idea/libraries/transition_25_1_0.xml
 app/.idea/modules.xml
 app/local.properties
+app/.idea/libraries/realm_android_library_2_2_1.xml
+app/.idea/libraries/realm_annotations_2_2_1.xml
+app/.idea/libraries/relinker_1_2_2.xml
