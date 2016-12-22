@@ -31,6 +31,10 @@ public class SearchResult extends RealmObject {
         return searchResultResponseList;
     }
 
+    public void setKey(String key) {
+        this.key = key;
+    }
+
     public String getKey() {
         return key;
     }

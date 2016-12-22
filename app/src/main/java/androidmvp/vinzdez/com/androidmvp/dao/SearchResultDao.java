@@ -4,7 +4,9 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
 import java.sql.SQLException;
+import java.util.List;
 
+import androidmvp.vinzdez.com.androidmvp.model.Search;
 import androidmvp.vinzdez.com.androidmvp.model.SearchResultResponse;
 
 /**
@@ -13,13 +15,11 @@ import androidmvp.vinzdez.com.androidmvp.model.SearchResultResponse;
 
 public interface SearchResultDao extends DaoTemplate<SearchResultResponse, Integer> {
 
-    /**
-     * @param webFormId
-     * @return the Remark with the passed webFormId.
-     * webFormId is the primary key for web
-     * @throws SQLException
-     */
+
     @Nullable
-    SearchResultResponse findSearchResultByKey(@NonNull String webFormId) throws SQLException;
+    Search findSearchResultByKey(@NonNull String key) throws SQLException;
+
+    void save(@NonNull List<SearchResultResponse> searchResultResponseList, @NonNull String key) throws SQLException;
 
 }
+

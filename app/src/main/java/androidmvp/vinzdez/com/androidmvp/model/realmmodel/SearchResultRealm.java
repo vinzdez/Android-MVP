@@ -1,7 +1,6 @@
 package androidmvp.vinzdez.com.androidmvp.model.realmmodel;
 
-import com.google.gson.annotations.SerializedName;
-
+import androidmvp.vinzdez.com.androidmvp.model.SearchResultResponse;
 import io.realm.RealmObject;
 import io.realm.annotations.PrimaryKey;
 
@@ -13,15 +12,32 @@ public class SearchResultRealm extends RealmObject {
 
     //A default public constructor with no argument must be declared if a custom constructor is declared.
     public SearchResultRealm() {
+
+    }
+
+
+    public SearchResultRealm(String name, String source, String description) {
+        this.name = name;
+        this.source = source;
+        this.description = description;
     }
 
     @PrimaryKey
     private long id;
 
-    @SerializedName("name")
     public String name;
-    @SerializedName("source")
     public String source;
-    @SerializedName("description")
     public String description;
+
+    public String getName() {
+        return name;
+    }
+
+    public String getSource() {
+        return source;
+    }
+
+    public String getDescription() {
+        return description;
+    }
 }
