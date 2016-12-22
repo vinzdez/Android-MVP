@@ -12,6 +12,7 @@ app/.idea/libraries/constraint_layout_1_0_0_beta4.xml
 app/.idea/libraries/constraint_layout_solver_1_0_0_beta4.xml
 app/.idea/markdown-navigator.xml
 app/.idea/markdown-navigator/profiles_settings.xml
+<<<<<<< HEAD
 app/.idea/libraries/animated_vector_drawable_25_1_0.xml
 app/.idea/libraries/appcompat_v7_25_1_0.xml
 app/.idea/libraries/butterknife_8_4_0.xml
@@ -31,12 +32,31 @@ app/.idea/libraries/realm_annotations_2_2_1.xml
 app/.idea/libraries/recyclerview_v7_25_1_0.xml
 app/.idea/libraries/relinker_1_2_2.xml
 app/.idea/libraries/retrofit_2_1_0.xml
+=======
+app/.idea/.name
+app/.idea/gradle.xml
+app/.idea/libraries/animated_vector_drawable_25_1_0.xml
+app/.idea/libraries/appcompat_v7_25_1_0.xml
+app/.idea/libraries/cardview_v7_25_1_0.xml
+app/.idea/libraries/design_25_1_0.xml
+app/.idea/libraries/recyclerview_v7_25_1_0.xml
+>>>>>>> develop
 app/.idea/libraries/support_annotations_25_1_0.xml
 app/.idea/libraries/support_compat_25_1_0.xml
 app/.idea/libraries/support_core_ui_25_1_0.xml
 app/.idea/libraries/support_core_utils_25_1_0.xml
 app/.idea/libraries/support_fragment_25_1_0.xml
 app/.idea/libraries/support_media_compat_25_1_0.xml
+<<<<<<< HEAD
 app/.idea/libraries/support_v4_25_1_0.xml
 app/.idea/libraries/support_vector_drawable_25_1_0.xml
 app/.idea/libraries/transition_25_1_0.xml
+=======
+app/.idea/libraries/support_vector_drawable_25_1_0.xml
+app/.idea/libraries/transition_25_1_0.xml
+app/.idea/modules.xml
+app/local.properties
+app/.idea/libraries/realm_android_library_2_2_1.xml
+app/.idea/libraries/realm_annotations_2_2_1.xml
+app/.idea/libraries/relinker_1_2_2.xml
+>>>>>>> develop
