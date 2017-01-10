@@ -6,7 +6,6 @@ This was created for the FF: purpose
 - Save Data on DB and Retrieve Previous Search from DB
 
 # TODO
-- Save the Search items and Search Result from DB using Realm
 - Once a Card View is click open a Web View
 
 [![ScreenShot](https://github.com/vinzdez/Android-MVP/blob/develop/screenshot/Screenshot_1482309670.png)](#features)
