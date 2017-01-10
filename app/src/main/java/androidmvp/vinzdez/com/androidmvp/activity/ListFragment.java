@@ -62,7 +62,9 @@ public class ListFragment extends Fragment implements SearchResultView {
             this.listFragVIew = inflater.inflate(R.layout.fragment_list, container, false);
             ButterKnife.bind(this, listFragVIew);
             this.listAdapter = new ListAdapter();
-            recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+            LinearLayoutManager linearLayoutManager = new LinearLayoutManager(context);
+            linearLayoutManager.setItemPrefetchEnabled(true);
+            recyclerView.setLayoutManager(linearLayoutManager);
             recyclerView.setAdapter(listAdapter);
             tvEmptyMessage.setTypeface(FontUtil.getFontAwesome(context));
 
@@ -92,7 +94,7 @@ public class ListFragment extends Fragment implements SearchResultView {
 
     @Override
     public boolean onQueryTextSubmit(String query) {
-        if(GONE != linearLayoutEmptyState.getVisibility() ){
+        if (GONE != linearLayoutEmptyState.getVisibility()) {
             recyclerView.setVisibility(View.VISIBLE);
             progressBar.setVisibility(View.VISIBLE);
             linearLayoutEmptyState.setVisibility(GONE);

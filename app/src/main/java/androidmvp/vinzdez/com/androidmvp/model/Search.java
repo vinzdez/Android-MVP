@@ -19,7 +19,7 @@ public class Search {
     }
 
     public void obtainFromResult(List<SearchResultRealm> searchResultRealmList, String key) {
-        if (searchResultRealmList == null) {
+        if (searchResultResponseList == null) {
             searchResultResponseList = new ArrayList<>();
         } else {
             searchResultResponseList.clear();

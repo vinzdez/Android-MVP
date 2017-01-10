@@ -27,4 +27,16 @@ public class SearchResultResponse {
     public SearchResultRealm toRealm() {
         return new SearchResultRealm(name, source, description);
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getSource() {
+        return source;
+    }
+
+    public String getDescription() {
+        return description;
+    }
 }

@@ -41,20 +41,22 @@ public class SearchResultRealmDao implements SearchResultDao {
     }
 
     @Override
-    public void save(@NonNull List<SearchResultResponse> searchResultResponseList, @NonNull final String key) throws SQLException {
-        final List<SearchResultRealm> searchResultRealms = new ArrayList<>();
-        for (SearchResultResponse searchResultResponse : searchResultResponseList) {
-            searchResultRealms.add(searchResultResponse.toRealm());
-        }
-
+    public void save(@NonNull final List<SearchResultResponse> searchResultResponseList, @NonNull final String key) throws SQLException {
         realm.executeTransaction(new Realm.Transaction() {
             @Override
             public void execute(Realm realm) {
-                List<SearchResultRealm> copySearchResults = realm.copyToRealmOrUpdate(searchResultRealms);
-                SearchResult searchResult = new SearchResult();
-                searchResult.getSearchResultResponseList().addAll(copySearchResults);
+                List<SearchResultRealm> searchResultRealmList = new ArrayList<>();
+
+                for (SearchResultResponse searchResultResponse : searchResultResponseList) {
+                    SearchResultRealm searchResultRealm = realm.createObject(SearchResultRealm.class);
+                    searchResultRealm.setName(searchResultResponse.getName());
+                    searchResultRealm.setSource(searchResultResponse.getSource());
+                    searchResultRealm.setDescription(searchResultResponse.getDescription());
+                    searchResultRealmList.add(searchResultRealm);
+                }
+                SearchResult searchResult = realm.createObject(SearchResult.class);
+                searchResult.getSearchResultResponseList().addAll(searchResultRealmList);
                 searchResult.setKey(key);
-                realm.copyToRealmOrUpdate(searchResult);
             }
         });
     }

@@ -22,9 +22,6 @@ public class SearchResultRealm extends RealmObject {
         this.description = description;
     }
 
-    @PrimaryKey
-    private long id;
-
     public String name;
     public String source;
     public String description;
@@ -40,4 +37,17 @@ public class SearchResultRealm extends RealmObject {
     public String getDescription() {
         return description;
     }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setSource(String source) {
+        this.source = source;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
 }
