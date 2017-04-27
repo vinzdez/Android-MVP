@@ -1,7 +1,7 @@
 # Android-MVP
 This is a sample Android Application
 This was created for the FF: purpose
-- User can search anything and return back the top ten result from Google
+- User can search anything and return back the top ten result from a web crawler I created
 - Use Model - View - Presenter (For more details see : [https://github.com/googlesamples/android-architecture] )
 - Save Data on DB and Retrieve Previous Search from DB
 
